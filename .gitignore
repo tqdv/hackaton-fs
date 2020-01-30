@@ -60,3 +60,7 @@ crashlytics-build.properties
 
 # VS Code
 .vscode
+
+# Unity build
+/build*
+/arm64

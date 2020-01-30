@@ -17,7 +17,8 @@ public class PdfLoaderish : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (WaveVR_Controller.Input(WVR_DeviceType.WVR_DeviceType_Controller_Right).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Touchpad))
+		if (Input.GetKeyDown(KeyCode.Mouse0)
+			|| WaveVR_Controller.Input(WVR_DeviceType.WVR_DeviceType_Controller_Right).GetPressDown(WVR_InputId.WVR_InputId_Alias1_Touchpad))
 		{
 			// Print the next page (and loop)
 			CreatePdfQuad(count);
@@ -32,22 +33,28 @@ public class PdfLoaderish : MonoBehaviour
 
 		// HMD properties
 		Quaternion wvrRot = WaveVR_Controller.Input(WVR_DeviceType.WVR_DeviceType_HMD).transform.rot;
-		Vector3 wvrPos = WaveVR_Controller.Input(WVR_DeviceType.WVR_DeviceType_HMD).transform.pos
+		Vector3 wvrPos = WaveVR_Controller.Input(WVR_DeviceType.WVR_DeviceType_HMD).transform.pos;
 
-		// Create object
-		GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
+		// Create object root
+		GameObject page = new GameObject(string.Format("Page {0}", pagenum));
 
 		// NB: A4 paper = 21cm x 29.7cm
-		quad.transform.localScale = new Vector3(0.21f, 0.297f, 1f);
-		quad.transform.position = wvrPos + (wvrRot * Vector3.forward) ;
-		quad.transform.rotation = wvrRot;
-		quad.GetComponent<Renderer>().material.mainTexture = Resources.Load<Texture>(texturePath);
+		// Create front side
+		GameObject front = GameObject.CreatePrimitive(PrimitiveType.Quad);
+		front.name = "Front";
+		front.transform.parent = page.transform;
+		front.transform.localScale = new Vector3(0.21f, 0.297f, 1f);
+		front.transform.position = wvrPos + (wvrRot * Vector3.forward);
+		front.transform.rotation = wvrRot;
+		// Add texture
+		front.GetComponent<Renderer>().material.mainTexture = Resources.Load<Texture>(texturePath);
 
 		// Create backside by creating the same object, and flipping it
-		// Create object
-		GameObject quadBack = GameObject.CreatePrimitive(PrimitiveType.Quad);
-		quad.transform.localScale = new Vector3(0.21f, 0.297f, 1f);
-		quad.transform.position = wvrPos + (wvrRot * Vector3.forward) ;
-		quad.transform.rotation = wvrRot * Quaternion.Euler(0f, 90f, 0f);
+		GameObject back = GameObject.CreatePrimitive(PrimitiveType.Quad);
+		back.name = "Back";
+		back.transform.parent = page.transform;
+		back.transform.localScale = new Vector3(0.21f, 0.297f, 1f);
+		back.transform.position = wvrPos + (wvrRot * Vector3.forward);
+		back.transform.rotation = wvrRot * Quaternion.Euler(0f, 180f, 0f);
 	}
 }

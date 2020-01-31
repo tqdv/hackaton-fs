@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayDestroyAudio : MonoBehaviour
 {
-	AudioSource sound;
+	public AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
     {
-    	sound = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -20,6 +19,6 @@ public class PlayDestroyAudio : MonoBehaviour
 
 	void OnDestroy ()
 	{
-		sound.Play();
+		AudioSource.PlayClipAtPoint(clip, transform.position);
 	}
 }

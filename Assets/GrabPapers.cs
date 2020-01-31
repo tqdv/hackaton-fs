@@ -6,11 +6,13 @@ public class GrabPapers : MonoBehaviour
 {
     protected bool isGrabbing;
     protected GameObject contact;
+    protected bool isBigger;
 
     // Start is called before the first frame update
     void Start()
     {
         isGrabbing = false;
+        isBigger = false;
     }
 
     // Update is called once per frame
@@ -31,6 +33,19 @@ public class GrabPapers : MonoBehaviour
             Release();
         }
 
+       if (isGrabbing && Input.GetButtonDown("TouchPadRight") && contact != null)
+        {
+            if (isBigger)
+            {
+                contact.transform.localScale /= 3;
+                isBigger = false;
+            }
+            else
+            {
+                contact.transform.localScale *= 3;
+                isBigger = true;
+            }
+        }
     }
 
     protected void OnTriggerEnter(Collider other)
@@ -50,10 +65,10 @@ public class GrabPapers : MonoBehaviour
     {
         if (contact != null)
         {
-            contact.transform.SetParent(gameObject.transform);
+            contact.transform.parent.SetParent(gameObject.transform);
             isGrabbing = true;
             contact.transform.GetComponent<Rigidbody>().isKinematic = true;
-            
+           
 
         }
         
@@ -61,9 +76,8 @@ public class GrabPapers : MonoBehaviour
 
     protected void Release()
     {
-        contact.transform.parent = null;
+        contact.transform.parent.parent = null;
         isGrabbing = false;
-        contact.transform.GetComponent<Rigidbody>().isKinematic = false;
         
     }
 }

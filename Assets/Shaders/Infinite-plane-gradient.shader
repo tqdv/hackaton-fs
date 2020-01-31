@@ -60,7 +60,7 @@
 
 					//fixed4 col = tex2D(_MainTex, i.uv);
 					//col = col * (_ColorCenter + _ColorFar * (dist / _DistMax));
-					fixed4 col = _ColorCenter * (1-dist) + _ColorFar * dist ;
+					fixed4 col = ( _ColorCenter * (1-dist) + dist * lerp( _ColorFar, tex2D(_MainTex, i.uv), 0.7 ) );
 
 					return col;
 				}

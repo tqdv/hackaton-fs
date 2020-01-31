@@ -51,8 +51,9 @@ public class GrabPapers : MonoBehaviour
         if (contact != null)
         {
             contact.transform.SetParent(gameObject.transform);
-            contact.transform.GetComponent<Rigidbody>().isKinematic = true;
             isGrabbing = true;
+            contact.transform.GetComponent<Rigidbody>().isKinematic = true;
+            
 
         }
         
@@ -61,7 +62,8 @@ public class GrabPapers : MonoBehaviour
     protected void Release()
     {
         contact.transform.parent = null;
-        contact.transform.GetComponent<Rigidbody>().isKinematic = false;
         isGrabbing = false;
+        contact.transform.GetComponent<Rigidbody>().isKinematic = false;
+        
     }
 }

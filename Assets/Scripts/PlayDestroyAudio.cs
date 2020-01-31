@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayDestroySound : MonoBehaviour
+public class PlayDestroyAudio : MonoBehaviour
 {
 	AudioSource sound;
 

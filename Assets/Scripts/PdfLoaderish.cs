@@ -28,8 +28,8 @@ public class PdfLoaderish : MonoBehaviour
 		}
 	}
 
-	// Create a 2 sided quad for image display
-	// and attach a collider and an (custom) info class
+	// Create a new page from prefab an texture it
+	// Place it in front of the HMD
 	private void CreatePdfQuad (int pagenum)
 	{
 		GameObject aPage = GameObject.Instantiate(page);

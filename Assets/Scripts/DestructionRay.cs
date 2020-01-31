@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 // Sends a ray from the given object that destroys an object on click
 public class DestructionRay : MonoBehaviour
@@ -30,13 +31,12 @@ public class DestructionRay : MonoBehaviour
 		bool touched = Physics.Raycast(transform.position, dir, out hit, Mathf.Infinity, layerMask);
 
 		// Display Ray
-		Debug.DrawRay(transform.position, dir * 5 /* distance */);
-		
-		// Highlight target ? TODO
+		//Debug.DrawRay(transform.position, dir * 5 /* distance */, Color.white, 5 /* secs */);
+        // Highlight target ? TODO
 
-		// Destroy on click
-		if (touched && true /* FIXME click */) {
-			Object.Destroy(hit.transform); /* .parent maybe ? */
+        // Destroy on click
+        if (touched && Input.GetButtonDown("TouchPadLeft")) {
+            Destroy(hit.transform.parent.gameObject);
 
 			// Explosions
 		}

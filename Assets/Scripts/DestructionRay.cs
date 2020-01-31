@@ -6,15 +6,19 @@ using UnityEngine;
 public class DestructionRay : MonoBehaviour
 {
 
-	public int layerNum = Physics.DefaultRaycastLayers;
+	public int layerNum;
 	int layerMask;
 	RaycastHit hit;
 
     // Start is called before the first frame update
     void Start()
     {
-		layerMask = 1 << layerNum;
-        
+		if (layerNum == null)
+		{
+			layerMask = Physics.DefaultRaycastLayers;
+		} else {
+			layerMask = 1 << layerNum;
+		}
     }
 
     // Update is called once per frame

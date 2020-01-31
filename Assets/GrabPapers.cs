@@ -21,7 +21,7 @@ public class GrabPapers : MonoBehaviour
 
         print(contact);
 
-        if (!isGrabbing && Input.GetButton("RightTrigger") )
+        if (!isGrabbing && Input.GetButtonDown("RightTrigger") )
         {
             Grab();
         }
@@ -35,20 +35,26 @@ public class GrabPapers : MonoBehaviour
 
        if (isGrabbing && Input.GetButtonDown("TouchPadRight") && contact != null)
         {
-            if (isBigger)
+            if (contact.transform.parent.localScale.x > 55f)
             {
-                contact.transform.localScale /= 3;
-                isBigger = false;
+                contact.transform.parent.localScale /= 3f;
             }
             else
             {
-                contact.transform.localScale *= 3;
-                isBigger = true;
+                contact.transform.parent.localScale *= 3f;
             }
         }
     }
 
     protected void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 8)
+        {
+            contact = other.gameObject;
+        }
+    }
+
+    protected void OnTriggerStay(Collider other)
     {
         if (other.gameObject.layer == 8)
         {
@@ -64,14 +70,9 @@ public class GrabPapers : MonoBehaviour
     protected void Grab()
     {
         if (contact != null)
-        {
-            contact.transform.parent.SetParent(gameObject.transform);
-            isGrabbing = true;
-            contact.transform.GetComponent<Rigidbody>().isKinematic = true;
-           
-
-        }
-        
+           contact.transform.parent.SetParent(gameObject.transform);
+           isGrabbing = true;
+           contact.transform.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     protected void Release()

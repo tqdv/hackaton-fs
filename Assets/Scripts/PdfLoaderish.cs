@@ -45,7 +45,7 @@ public class PdfLoaderish : MonoBehaviour
         // Set pose
         Quaternion vrRot = InputTracking.GetLocalRotation(node);
         Vector3 vrPos = InputTracking.GetLocalPosition(node);
-		aPage.transform.position = vrPos + (vrRot * Vector3.forward)*0.7f;
+		aPage.transform.position = vrPos + (vrRot * Vector3.forward)*0.6f;
 		aPage.transform.rotation = vrRot;
 	}
 }

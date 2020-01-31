@@ -40,5 +40,12 @@ public class PdfLoaderish : MonoBehaviour
 		// Add texture
 		Transform front = aPage.transform.GetChild(0).Find("Front");
 		front.GetComponent<Renderer>().material.mainTexture = Resources.Load<Texture>(texturePath);
+
+		// Set pose
+		/* FIXME */
+		Quaternion wvrRot = WaveVR_Controller.Input(WVR_DeviceType.WVR_DeviceType_HMD).transform.rot;
+		Vector3 wvrPos = WaveVR_Controller.Input(WVR_DeviceType.WVR_DeviceType_HMD).transform.pos;
+		aPage.transform.position = wvrPos + (wvrRot * Vector3.forward);
+		aPage.transform.rotation = wvrRot;
 	}
 }

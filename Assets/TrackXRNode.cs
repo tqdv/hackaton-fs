@@ -19,9 +19,5 @@ public class TrackXRNode : MonoBehaviour
         transform.position = InputTracking.GetLocalPosition(node);
 
         transform.rotation = InputTracking.GetLocalRotation(node);
-
-
-
-        print(Input.GetButton("Fire1"));
     }
 }

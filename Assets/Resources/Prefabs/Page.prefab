@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7622956723978694298}
   - component: {fileID: 2174040772165609842}
   - component: {fileID: 7503332983504931384}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3119624011589188796}
   - component: {fileID: 4301294659551395339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Page
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 2104051500581365090}
   - component: {fileID: 2173123890924791900}
   - component: {fileID: 2549098929986569306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: A4 Paper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 4888743734635278370}
   - component: {fileID: 6146053435188647208}
   - component: {fileID: 4562357595511110887}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}

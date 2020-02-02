@@ -4,7 +4,7 @@
 
 [Clarte](https://www.clarte-lab.fr), a consulting firm in Virtual and Augmented Reality, organized a 2-day hackathon in their office at the [Laval Virtual Center](http://http://lavalvirtualcenter.com/en/).
 
-They supplied us with an HTC Vive Focus at first (6DoF headset and 3DoF controller), and then we switched to an HTC Vive (6DoF headset and 2 3DoF controllers).
+They supplied us with an HTC Vive Focus at first (6DoF headset and 3DoF controller), and then we switched to an HTC Vive (6DoF headset and 2 6DoF controllers).
 
 # Concept
 

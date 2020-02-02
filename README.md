@@ -26,7 +26,9 @@ We built it using Unity.
 
 ![](img/preview.png)
 
-**NB:** the paper is [Hinged Dissections Exist](https://arxiv.org/abs/0712.2094v1). A video of it in action is available on Reddit: [click here](https://www.reddit.com/r/interestingasfuck/comments/bd56eq/hinged_dissections_between_a_triangle_a_square/)
+**NB:** the paper is [Hinged Dissections Exist](https://arxiv.org/abs/0712.2094v1). A video of it in action is available on Reddit: [click here](https://www.reddit.com/r/interestingasfuck/comments/bd56eq/hinged_dissections_between_a_triangle_a_square/).
+
+Unfortunately, we lost and didn't get any feedback from the Clarte jury.
 
 # The team
 

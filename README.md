@@ -10,7 +10,7 @@ They supplied us with an HTC Vive Focus at first (6DoF headset and 3DoF controll
 
 The prompt:
 
-> In 2030, what Virtual Reality will improve your day to day life
+> In 2030, how will Virtual Reality will improve your day to day life ?
 
 We thought about what things were annoying to do, and settled on managing paperwork. It's always a pain to find the right files for the right thing, sometimes you need only a paragraph for your research.
 
